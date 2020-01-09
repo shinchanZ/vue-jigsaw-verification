@@ -93,7 +93,7 @@
         },
         watch: {
             isVerificationShow(val) {
-                this.$emit('setVisible', val)
+                this.$emit('update:verificationShow', val)
             },
             verificationShow(val) {
                 this.isVerificationShow = val
@@ -191,9 +191,9 @@
         methods: {
             // 关闭验证
             closeVerificationBox() {
-                this.reset()
                 this.displayTips = false
                 this.refreshImg()
+                this.reset()
                 this.isVerificationShow = false
             },
             // 拼图验证重置
