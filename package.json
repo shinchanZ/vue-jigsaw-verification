@@ -1,11 +1,15 @@
 {
   "name": "vue-jigsaw-verification",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.6",
+  "private": false,
+  "description": "基于vue的拼图验证组件",
+  "author": "zdd2018",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name vueJigsawVerification --dest lib packages/index.js"
   },
+  "main": "lib/vueJigsawVerification.umd.min.js",
   "dependencies": {
     "core-js": "^3.4.4",
     "element-ui": "^2.4.5",
@@ -14,10 +18,18 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
+    "babel-plugin-component": "^1.1.1",
     "node-sass": "^4.9.2",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "jigsaw",
+    "verification",
+    "component"
+  ]
 }
