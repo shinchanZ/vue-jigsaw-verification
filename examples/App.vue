@@ -1,8 +1,8 @@
 <template>
     <div id="app">
-        <el-button @click="show=true">显示</el-button>
+        <button @click="show=true">显示</button>
         <vue-jigsaw-verification
-                :verificationShow="show"
+                :verificationShow.sync="show"
                 width="300"
                 height="270"
                 blockType="puzzle"

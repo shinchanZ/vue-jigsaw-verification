@@ -18,7 +18,7 @@ Vue.use(vueJigsawVerfication)
 ### Compiles and minifies for production
 ```html
    <vue-jigsaw-verification
-                :verificationShow="false"
+                :verificationShow.sync="false"
                 width="300"
                 height="270"
                 blockType="puzzle"
