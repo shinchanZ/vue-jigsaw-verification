@@ -3,8 +3,8 @@
         <button @click="show=true">显示</button>
         <vue-jigsaw-verification
                 :verificationShow.sync="show"
-                width="300"
-                height="270"
+                width="350"
+                height="300"
                 blockType="puzzle"
                 backgroundColor="rgba(255,255,255,0.5)"
                 :onSuccess="handleSuccess">

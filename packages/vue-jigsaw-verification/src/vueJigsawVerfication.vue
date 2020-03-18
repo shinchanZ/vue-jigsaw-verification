@@ -7,13 +7,11 @@
                 <div class="puzzle-header">
                     <span class="puzzle-header-left"><slot name="title">滑动下方拼图完成安全验证</slot></span>
                     <div>
-                        <i class="el-icon-refresh-right re-btn" @click="refreshImg" ref="refreshImg"></i>
-                        <i class="el-icon-circle-close close-btn" @click="closeVerificationBox"></i>
+                        <span class="iconfont icon-icon-test re-btn" @click="refreshImg" ref="refreshImg"></span>&nbsp;&nbsp;
+                        <span class="iconfont icon-guanbi re-btn" @click="closeVerificationBox"></span>
                     </div>
                 </div>
-                <div :style="'position:relative;overflow:hidden;width:'+ imgWidth +'px;'" v-loading="imgLoading"
-                     element-loading-text="加载中..."
-                     element-loading-spinner="el-icon-loading">
+                <div :style="'position:relative;overflow:hidden;width:'+ imgWidth +'px;'">
                     <div :style="'position:relative;width:' + imgWidth + 'px;height:' + imgHeight + 'px;'">
                         <img
                                 id="scream"
@@ -35,15 +33,26 @@
                     <p :class="'ver-tips'+ (displayTips ? ' slider-tips' : '')" ref="verTips">
                         <template v-if="verification">
 
-                        <span style="color:#42ca6b;"><i class="el-icon-success"></i>&nbsp;<slot
+                        <span style="color:#42ca6b;"><span class="iconfont icon-chenggong1"
+                                                           style="color:#42ca6b;"></span>&nbsp;<slot
                                 name="success">验证通过</slot></span>
                         </template>
                         <template v-if="!verification">
-                        <span style="color:red;"> <i class="el-icon-error"></i>&nbsp;<slot
+                        <span style="color:red;"><span style="color:#42ca6b;"><span
+                                class="iconfont icon-shibai"></span></span> &nbsp;<slot
                                 name="error">验证失败: 拖动滑块将悬浮图像正确拼合</slot>
 </span>
                         </template>
                     </p>
+                    <div class="loading-box" v-if="imgLoading"
+                         :style="'position:absolute;overflow:hidden;width:'+ imgWidth +'px;left:0;top:0;height:100%;z-index:9999;'">
+                        <div class="loading-content">
+                            <p>
+                                <span class="iconfont icon-jiazai" style="font-size: 20px"></span>
+                            </p>
+                            <p style="font-size: 14px">加载中</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="slider-container " :style="'width:' + imgWidth + 'px;'">
@@ -51,7 +60,8 @@
                     <div class="btn-container" ref="btnContainer">
                         <div class="slider-btn" ref="sliderBtn" @mousedown="startMove" @touchstart="startMove"
                              @mouseup="moveEnd">
-                            <i :class="buttonIcon"></i>
+                            <span
+                                    class="iconfont" :class="buttonIcon"></span>
                         </div>
                     </div>
                 </div>
@@ -61,6 +71,7 @@
 </template>
 
 <script>
+    import './iconfont/iconfont.css'
 
     export default {
         name: 'vueJigsawVerification',
@@ -83,7 +94,7 @@
                 deviationValue: null,
                 radius: null,
                 padding: 50,
-                buttonIcon: 'el-icon-right',
+                buttonIcon: 'icon-youjiantouxiangyouxianxing',
                 imgLoading: false
             }
         },
@@ -153,14 +164,14 @@
             onSuccess: {
                 type: Function,
                 default: () => {
-                    console.log('成功')
+                    // console.log('成功')
                 }
             },
             // 失败的回调
             onError: {
                 type: Function,
                 default: () => {
-                    console.log('失败')
+                    // console.log('失败')
                 }
             },
             verificationShow: {
@@ -198,7 +209,7 @@
             },
             // 拼图验证重置
             reset() {
-                this.buttonIcon = 'el-icon-right'
+                this.buttonIcon = 'icon-youjiantouxiangyouxianxing'
                 this.$refs.btnContainer.style.border = '1px solid white'
                 this.$refs.btnContainer.style.borderRadius = '2px'
                 this.$refs.btnContainer.style.width = '45px'
@@ -451,7 +462,7 @@
                 let Max_left = ver_Num + deviationValue
                 if (self.moveStart !== '') {
                     if (Max_left > moveEnd_X && moveEnd_X > Min_left) {
-                        self.buttonIcon = 'el-icon-check'
+                        self.buttonIcon = 'icon-chenggong'
                         self.$refs.sliderBtn.style.backgroundColor = '#37C448'
                         self.$refs.btnContainer.style.border = '1px solid #37C448'
                         self.$refs.btnContainer.style.borderRadius = '2px'
@@ -465,7 +476,7 @@
                             self.onSuccess()
                         }, 500)
                     } else {
-                        self.buttonIcon = 'el-icon-close'
+                        self.buttonIcon = 'icon-guanbi1'
                         self.$refs.sliderBtn.style.backgroundColor = '#f57a7a'
                         self.$refs.btnContainer.style.border = '1px solid #f57a7a'
                         self.$refs.btnContainer.style.borderRadius = '2px'
@@ -547,7 +558,7 @@
             transition: background .2s linear;
             width: 45px;
             height: 100%;
-            line-height: 40px;
+            line-height: 39px;
             text-align: center;
             font-size: 20px;
             font-weight: bold;
@@ -636,7 +647,7 @@
         }
 
         .close-btn {
-            font-size: 17px;
+            font-size: 16px;
         }
 
         .close-btn:hover {
@@ -699,6 +710,19 @@
         .el-loading-spinner i {
             color: #000 !important;
             font-size: 30px;
+        }
+        .loading-box {
+            background-color: rgba(255, 255, 255, .9);
+            transition: all .1s;
+            .loading-content {
+                text-align: center;
+                width: 60px;
+                height: 25px;
+                position: absolute;
+                line-height: 10px;
+                top: calc(50% - 12.5px);
+                left: calc(50% - 20px);
+            }
         }
     }
 

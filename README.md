@@ -10,7 +10,6 @@ cnpm i vue-jigsaw-verification -S
 
 ```javascript
 //main.js
-import 'element-ui/lib/theme-chalk/index.css';
 import vueJigsawVerfication from 'vue-jigsaw-verification'
 Vue.use(vueJigsawVerfication)
 ```
