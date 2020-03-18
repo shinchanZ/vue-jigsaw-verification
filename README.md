@@ -2,8 +2,8 @@
 
 ## 安装
 ```bash
-npm vue-jigsaw-verification -S
-//npm vue-jigsaw-verification -S
+cnpm i vue-jigsaw-verification -S
+//npm i vue-jigsaw-verification -S
 ```
 
 ### 配置
