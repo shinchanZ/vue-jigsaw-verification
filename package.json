@@ -1,6 +1,6 @@
 {
   "name": "vue-jigsaw-verification",
-  "version": "0.1.7",
+  "version": "0.1.11",
   "private": false,
   "description": "基于vue的拼图验证组件",
   "author": "zdd2018",

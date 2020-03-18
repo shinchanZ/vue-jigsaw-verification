@@ -1,7 +1,7 @@
 <template>
     <div id="puzzle-verification" v-show="isVerificationShow">
         <div class="background" v-show="isVerificationShow" :style="'background:'+backgroundColor+';'"></div>
-        <transition name="el-zoom-in-top">
+        <transition name="fade">
             <div class="puzzle-container stop" v-show="isVerificationShow"
                  :style="'position: absolute;width:' + dataWidth + 'px;height:' + dataHeight + 'px;left: calc(50% - '+dataWidth/2+'px);top: calc(50% - '+dataHeight/2+'px);'">
                 <div class="puzzle-header">
@@ -44,9 +44,9 @@
 </span>
                         </template>
                     </p>
-                    <div class="loading-box" v-if="imgLoading"
+                    <div class="verfication-loading-box" v-if="imgLoading"
                          :style="'position:absolute;overflow:hidden;width:'+ imgWidth +'px;left:0;top:0;height:100%;z-index:9999;'">
-                        <div class="loading-content">
+                        <div class="verfication-loading-box">
                             <p>
                                 <span class="iconfont icon-jiazai" style="font-size: 20px"></span>
                             </p>
@@ -711,17 +711,17 @@
             color: #000 !important;
             font-size: 30px;
         }
-        .loading-box {
+        .verfication-loading-box {
             background-color: rgba(255, 255, 255, .9);
             transition: all .1s;
-            .loading-content {
+            .verfication-loading-box {
                 text-align: center;
                 width: 60px;
-                height: 25px;
+                height: 40px;
                 position: absolute;
                 line-height: 10px;
-                top: calc(50% - 12.5px);
-                left: calc(50% - 20px);
+                top: calc(50% - 20px);
+                left: calc(50% - 30px);
             }
         }
     }
