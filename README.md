@@ -27,7 +27,7 @@ Vue.use(vueJigsawVerfication)
             <span slot="title">请完成安全验证</span>
             <span slot="success"> 验证通过</span>
             <span slot="error"> 验证失败，请重新进行验证</span>
-   <vue-jigsaw-verification>
+   </vue-jigsaw-verification>
 ```
 
 ### 属性
